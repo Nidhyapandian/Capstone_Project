@@ -19,11 +19,7 @@ docker push $DOCKER_REPO:latest
 
 else echo "Branch not configured for deployment" exit 1
 fi
-             
-              
-  
 
-                 
     
   
     
