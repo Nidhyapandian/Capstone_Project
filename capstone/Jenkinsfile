@@ -23,8 +23,8 @@ pipeline {
                       echo "haiiii dev"
 
                
-                      docker tag nginximage smart24/dev:latest
-                      docker push  smart24/dev:latest
+                      docker tag nginximage smart24/dev
+                      docker push  smart24/dev
                       
                       echo "Docker image pushed successfully."
                 else if ( "${BRANCH_NAME}" == "main" ) 
