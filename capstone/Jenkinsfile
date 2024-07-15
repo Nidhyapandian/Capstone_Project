@@ -21,7 +21,7 @@ pipeline {
                       sh './build.sh'
                       echo "haiiii dev"            
                       docker tag nginximage smart24/dev
-                      docker push  smart24/dev
+                      docker push smart24/dev
                       echo "Docker image pushed successfully."
                  }
                 else if ( "${BRANCH_NAME}" == "main" ) 
@@ -30,7 +30,7 @@ pipeline {
                       sh './build.sh'
                       echo "mainnnnnnn"
                       docker tag nginximage smart24/dev
-                      docker push  smart24/dev
+                      docker push smart24/dev
                       echo "Docker image pushed successfully."
                 }   
               else {
