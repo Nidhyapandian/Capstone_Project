@@ -14,8 +14,7 @@ pipeline {
                     echo "Current branch is: ${BRANCH_NAME}"
                     // Perform actions based on BRANCH_NAME
                   sh 'docker-compose down'      
-                  
-                 
+                          
                  if ( "${BRANCH_NAME}" == "dev" ) 
                  then {
                       sh 'chmod +x build.sh'
