@@ -20,26 +20,20 @@ pipeline {
                  then {
                       sh 'chmod +x build.sh'
                       sh './build.sh'
-                      echo "haiiii dev"
-
-               
+                      echo "haiiii dev"            
                       docker tag nginximage smart24/dev
                       docker push  smart24/dev
-                      
                       echo "Docker image pushed successfully."
+                 }
                 else if ( "${BRANCH_NAME}" == "main" ) 
                 then {
                       sh 'chmod +x build.sh'
                       sh './build.sh'
                       echo "mainnnnnnn"
-
-                      DOCKER_REPO="smart24/prod:latest"
-                      docker tag {nginximage}:${BUILD_NUMBER} $DOCKER_REPO:${BUILD_NUMBER}
-                      docker push $DOCKER_REPO:${BUILD_NUMBER}
-                      docker push $DOCKER_REPO:latest
+                      docker tag nginximage smart24/dev
+                      docker push  smart24/dev
                       echo "Docker image pushed successfully."
-                     
-
+                }   
               else {
                   echo "Branch not configured for deployment"  exit 1 
                   }
