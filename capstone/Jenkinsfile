@@ -15,25 +15,21 @@ pipeline {
                     // Perform actions based on BRANCH_NAME
                   sh 'docker-compose down'      
                           
-                 if ( "${BRANCH_NAME}" == "dev" ) 
-                 then {
+                 if ( "${BRANCH_NAME}" == "dev" ) {
                       sh 'chmod +x build.sh'
                       sh './build.sh'
                       echo "haiiii dev"            
                       docker tag nginximage smart24/dev
                       docker push smart24/dev
                       echo "Docker image pushed successfully."
-                 }
-                else if ( "${BRANCH_NAME}" == "main" ) 
-                then {
+                 } else if ( "${BRANCH_NAME}" == "main" ) {
                       sh 'chmod +x build.sh'
                       sh './build.sh'
                       echo "mainnnnnnn"
                       docker tag nginximage smart24/dev
                       docker push smart24/dev
                       echo "Docker image pushed successfully."
-                }   
-              else {
+                } else {
                   echo "Branch not configured for deployment"  exit 1 
                   }
             
